@@ -2,7 +2,7 @@
 <%@ include file="common/navigation.jspf"%>
 <div class="container">
     <p>Add new user:</p>
-    <form:form method="post" modelAttribute="user">
+  <form:form method="post" modelAttribute="user">
 
         <form:label path="id">ID</form:label>
         <form:input path="id" type="number" required="required" />
