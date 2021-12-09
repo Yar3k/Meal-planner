@@ -3,8 +3,6 @@ package main.mealplanner.model;
 import javax.persistence.*;
 
 @Entity
-
-
 public class NutritionInfo {
 
     @Id
