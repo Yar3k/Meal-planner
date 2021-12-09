@@ -19,8 +19,8 @@ public class NutritionInfo {
     public void setId(Long id) {
         this.id = id;
     }
-    @Column(name = "recipeName")
-    private String recipeName;
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "protein")
     private double protein;
@@ -34,12 +34,12 @@ public class NutritionInfo {
     @Column(name = "calories")
     private double calories;
 
-    public String getRecipeName() {
-        return recipeName;
+    public String getName() {
+        return name;
     }
 
-    public void setRecipeName(String recipeName) {
-        this.recipeName = recipeName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public double getProtein() {

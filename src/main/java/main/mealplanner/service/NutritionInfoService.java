@@ -16,7 +16,7 @@ public class NutritionInfoService {
 
     }
     public NutritionInfo findByName(String recipeName){
-        Optional<NutritionInfo> byRecipeName = nutritionInfoRepository.findByRecipeName(recipeName);
+        Optional<NutritionInfo> byRecipeName = nutritionInfoRepository.findByName(recipeName);
         if (byRecipeName.isPresent()){
             return byRecipeName.get();
         }
