@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainMenuController {
 
     @GetMapping("/main-menu")
-        public String menu(ModelMap model) {
+    public String menu(ModelMap model) {
 
             return "main-menu";
         }
