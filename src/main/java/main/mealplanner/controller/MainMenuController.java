@@ -15,7 +15,7 @@ public class MainMenuController {
     @GetMapping("/meal-planner")
     public String mealPlaner(ModelMap model) {
 
-        return "mealPlanner";
+        return "meal-planner";
     }
 
 
