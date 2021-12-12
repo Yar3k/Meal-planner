@@ -3,7 +3,7 @@ package main.mealplanner.model;
 import javax.persistence.*;
 
 @Entity
-public class NutritionInfo {
+public class Ingredient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,6 +31,17 @@ public class NutritionInfo {
 
     @Column(name = "calories")
     private double calories;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Recipe recipe;
+
+    public Recipe getRecipe() {
+        return recipe;
+    }
+
+    public void setRecipe(Recipe recipe) {
+        this.recipe = recipe;
+    }
 
     public String getName() {
         return name;
@@ -70,5 +81,17 @@ public class NutritionInfo {
 
     public void setCalories(double calories) {
         this.calories = calories;
+    }
+
+    @Override
+    public String toString() {
+        return "Ingredient{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", protein=" + protein +
+                ", fat=" + fat +
+                ", carbohydrate=" + carbohydrate +
+                ", calories=" + calories +
+                '}';
     }
 }
