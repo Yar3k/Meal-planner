@@ -30,7 +30,7 @@ public class Ingredient {
     private double carbohydrate;
 
     @Column(name = "calories")
-    private double calories;
+    private int calories;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Recipe recipe;
@@ -75,11 +75,11 @@ public class Ingredient {
         this.carbohydrate = carbohydrate;
     }
 
-    public double getCalories() {
+    public int getCalories() {
         return calories;
     }
 
-    public void setCalories(double calories) {
+    public void setCalories(int calories) {
         this.calories = calories;
     }
 

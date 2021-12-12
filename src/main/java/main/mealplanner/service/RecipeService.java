@@ -33,8 +33,8 @@ public class RecipeService {
 
     }
 
-    private double getTotalCaloriesByRecipe(Recipe recipe){
-        double totalCalories = 0;
+    private int getTotalCaloriesByRecipe(Recipe recipe){
+        int totalCalories = 0;
         for (Ingredient ingredient : recipe.getIngredientList()) {
             totalCalories =+ ingredient.getCalories();
         }
@@ -62,4 +62,13 @@ public class RecipeService {
         return totalCarbohydrate;
     }
 
+    public void addNewRecipe(List<Ingredient> ingredientList, String name){
+        Recipe recipe = new Recipe();
+        recipe.setName(name);
+
+        for (Ingredient ingredient : ingredientList) {
+            recipe.addIngredient(ingredient);
+        }
+        recipeRepository.save(recipe);
+    }
 }
