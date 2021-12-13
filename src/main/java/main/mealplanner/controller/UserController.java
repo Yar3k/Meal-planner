@@ -37,16 +37,16 @@ public class UserController {
 	// http://localhost:8080/add-user
 	@GetMapping("/add-user")
 	public String showAddPage(ModelMap model) {
-		model.addAttribute("user", new User(0, ""));
+		model.addAttribute("user", new User("", "", ""));
 		return "user";
 	}
 
-	// http://localhost:8080/add-preke
 	@PostMapping("/add-user")
 	public String add(ModelMap model, @ModelAttribute("user") User u, BindingResult result) {
 		if(result.hasErrors()) {
 			return "user";
 		}
+		System.out.println(u.toString());
 		service.add(u);
 		return "redirect:/list-users";
 	}
