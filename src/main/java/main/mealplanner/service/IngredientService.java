@@ -1,25 +1,27 @@
 package main.mealplanner.service;
 
 import main.mealplanner.model.Food;
+import main.mealplanner.model.Ingredient;
 import main.mealplanner.repository.FoodRepository;
+import main.mealplanner.repository.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class FoodService {
+public class IngredientService {
     @Autowired
-    private FoodRepository repository;
+    private IngredientRepository repository;
 
-    public List<Food> getAllUsers() {
-        return (List<Food>) repository.findAll();
+    public List<Ingredient> getAllUsers() {
+        return (List<Ingredient>) repository.findAll();
     }
 
-    public List<Food> getByName(String name) {
+    public List<Ingredient> getByName(String name) {
         return repository.findByNameLike("%"+name+"%");
     }
 
-    public void add (Food food){
+    public void add (Ingredient food){
         repository.save(food);
     }
 }

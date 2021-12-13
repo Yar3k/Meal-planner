@@ -3,8 +3,8 @@ package main.mealplanner.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "ingredient")
-public class Food {
+public class Ingredient {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // JPA autogenerates value of id
     private int id;
@@ -14,14 +14,14 @@ public class Food {
     private String protein_g;
     private String carbohydrate_g;
 
-    public Food() {
+    public Ingredient() {
     }
 
-    public Food(String name) {
+    public Ingredient(String name) {
         this.name=name;
     }
 
-    public Food(String name, String calories, String fat_g, String protein_g, String carbohydrate_g) {
+    public Ingredient(String name, String calories, String fat_g, String protein_g, String carbohydrate_g) {
         this.name = name;
         this.calories = calories;
         this.fat_g = fat_g;
