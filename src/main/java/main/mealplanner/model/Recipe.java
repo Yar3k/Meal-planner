@@ -6,7 +6,6 @@ import java.util.List;
 
 @Entity
 public class Recipe {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -19,7 +18,6 @@ public class Recipe {
             orphanRemoval = true,
             fetch = FetchType.EAGER
     )
-
     List<Ingredient> ingredientList = new ArrayList<>();
 
     public void addIngredient(Ingredient ingredient) {

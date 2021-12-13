@@ -16,6 +16,7 @@ public class RecipeService {
     public RecipeService(RecipeRepository recipeRepository) {
         this.recipeRepository = recipeRepository;
     }
+
     public List<Recipe> findRecipesByNutrient(double calories, double protein, double carbohydrates, double fat){
         List<Recipe> allRecipes = recipeRepository.findAll();
         List<Recipe> result = new ArrayList<>();
@@ -43,21 +44,21 @@ public class RecipeService {
     private double getTotalProteinByRecipe(Recipe recipe){
         double totalProtein = 0;
         for (Ingredient ingredient : recipe.getIngredientList()){
-            totalProtein =+ ingredient.getProtein_g();
+            totalProtein =+ ingredient.getProtein();
         }
         return totalProtein;
     }
     private double getTotalFatByRecipe(Recipe recipe){
         double totalFat = 0;
         for (Ingredient ingredient : recipe.getIngredientList()){
-            totalFat =+ ingredient.getFat_g();
+            totalFat =+ ingredient.getFat();
         }
         return totalFat;
     }
     private double getTotalCarbohydrateByRecipe(Recipe recipe){
         double totalCarbohydrate = 0;
         for (Ingredient ingredient : recipe.getIngredientList()){
-            totalCarbohydrate =+ ingredient.getCarbohydrate_g();
+            totalCarbohydrate =+ ingredient.getCarbohydrate();
         }
         return totalCarbohydrate;
     }

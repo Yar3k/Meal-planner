@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.awt.*;
-
 @Controller
 public class WelcomeController {
 	
@@ -23,7 +21,4 @@ public class WelcomeController {
 		model.put("name", name);
 		return "welcome"; // view resolver welcome.jsp
 	}
-
-
-
 }
