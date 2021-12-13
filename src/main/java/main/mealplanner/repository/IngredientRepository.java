@@ -1,7 +1,6 @@
 package main.mealplanner.repository;
 
 
-import main.mealplanner.model.Food;
 import main.mealplanner.model.Ingredient;
 import org.springframework.data.jpa.repository.JpaRepository;
 

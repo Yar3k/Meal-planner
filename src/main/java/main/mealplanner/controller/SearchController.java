@@ -1,6 +1,5 @@
 package main.mealplanner.controller;
 
-import main.mealplanner.model.Food;
 import main.mealplanner.model.Ingredient;
 import main.mealplanner.service.IngredientService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,8 +1,6 @@
 package main.mealplanner.service;
 
-import main.mealplanner.model.Food;
 import main.mealplanner.model.Ingredient;
-import main.mealplanner.repository.FoodRepository;
 import main.mealplanner.repository.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
