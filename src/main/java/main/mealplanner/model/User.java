@@ -16,7 +16,7 @@ public class User {
 
     }
 
-    //public User() {}
+//    public User() {}
 
     public String toString() {
         return "User with id = "+this.id+" and with name = "+this.name+" and with email = "+this.email;

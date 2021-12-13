@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 public class RecipeService {
-/*    private final RecipeRepository recipeRepository;
+    private final RecipeRepository recipeRepository;
 
     @Autowired
     public RecipeService(RecipeRepository recipeRepository) {
@@ -43,21 +43,21 @@ public class RecipeService {
     private double getTotalProteinByRecipe(Recipe recipe){
         double totalProtein = 0;
         for (Ingredient ingredient : recipe.getIngredientList()){
-            totalProtein =+ ingredient.getProtein();
+            totalProtein =+ ingredient.getProtein_g();
         }
         return totalProtein;
     }
     private double getTotalFatByRecipe(Recipe recipe){
         double totalFat = 0;
         for (Ingredient ingredient : recipe.getIngredientList()){
-            totalFat =+ ingredient.getFat();
+            totalFat =+ ingredient.getFat_g();
         }
         return totalFat;
     }
     private double getTotalCarbohydrateByRecipe(Recipe recipe){
         double totalCarbohydrate = 0;
         for (Ingredient ingredient : recipe.getIngredientList()){
-            totalCarbohydrate =+ ingredient.getCarbohydrate();
+            totalCarbohydrate =+ ingredient.getCarbohydrate_g();
         }
         return totalCarbohydrate;
     }
@@ -70,5 +70,5 @@ public class RecipeService {
             recipe.addIngredient(ingredient);
         }
         recipeRepository.save(recipe);
-    }*/
+    }
 }

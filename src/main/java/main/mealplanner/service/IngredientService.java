@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class IngredientService {
+
     @Autowired
     private IngredientRepository repository;
 
@@ -18,6 +19,7 @@ public class IngredientService {
     public List<Ingredient> getByName(String name) {
         return repository.findByNameLike("%"+name+"%");
     }
+
 
     public void add (Ingredient food){
         repository.save(food);
