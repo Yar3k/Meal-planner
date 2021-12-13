@@ -14,20 +14,32 @@ public class Ingredient {
     private String protein_g;
     private String carbohydrate_g;
 
-    public Ingredient() {
-    }
-
-    public Ingredient(String name) {
-        this.name=name;
-    }
-
-    public Ingredient(String name, String calories, String fat_g, String protein_g, String carbohydrate_g) {
-        this.name = name;
-        this.calories = calories;
-        this.fat_g = fat_g;
-        this.protein_g = protein_g;
-        this.carbohydrate_g = carbohydrate_g;
-    }
+//    @ManyToOne
+//    @JoinColumn(name = "recipe_id")
+//    private Recipe recipe;
+//
+//    public Recipe getRecipe() {
+//        return recipe;
+//    }
+//
+//    public void setRecipe(Recipe recipe) {
+//        this.recipe = recipe;
+//    }
+//
+//    public Ingredient() {
+//    }
+//
+//    public Ingredient(String name) {
+//        this.name=name;
+//    }
+//
+//    public Ingredient(String name, String calories, String fat_g, String protein_g, String carbohydrate_g) {
+//        this.name = name;
+//        this.calories = calories;
+//        this.fat_g = fat_g;
+//        this.protein_g = protein_g;
+//        this.carbohydrate_g = carbohydrate_g;
+//    }
 
     public int getId() {
         return id;
