@@ -2,50 +2,29 @@ package main.mealplanner.model;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "users")
+//@Entity
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // JPA autogenerates value of id
-    private int id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @Column(name = "id", nullable = false)
+
+    private long id;
     private String name;
-    private String email;
-    private String password;
 
     public User() {
-
     }
-
-//    public User() {}
 
     public String toString() {
-        return "User with id = "+this.id+" and with name = "+this.name+" and with email = "+this.email;
+        return "User with id = " + this.id + " and with name = " + this.name;
     }
-    public User(String name, String email, String password) {
-        super();
+
+    public User(int id, String name) {
+        this.id = id;
         this.name = name;
-        this.email = email;
-        this.password = password;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public void setId(int id) {

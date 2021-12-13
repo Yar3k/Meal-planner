@@ -6,7 +6,6 @@ import java.util.List;
 
 @Entity
 public class Recipe {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -15,11 +14,10 @@ public class Recipe {
     private String name;
 
     @OneToMany(mappedBy = "recipe",
-            cascade = CascadeType.ALL,
+            cascade = CascadeType.MERGE,
             orphanRemoval = true,
             fetch = FetchType.EAGER
     )
-
     List<Ingredient> ingredientList = new ArrayList<>();
 
     public void addIngredient(Ingredient ingredient) {
