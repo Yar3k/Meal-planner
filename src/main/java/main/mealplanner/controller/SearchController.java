@@ -1,8 +1,8 @@
 package main.mealplanner.controller;
 
-import main.mealplanner.model.BMI;
 import main.mealplanner.model.Food;
-import main.mealplanner.service.FoodService;
+import main.mealplanner.model.Ingredient;
+import main.mealplanner.service.IngredientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -16,22 +16,22 @@ import java.util.List;
 @Controller
 public class SearchController {
     @Autowired
-    FoodService service;
+    IngredientService service;
 
     @GetMapping("/search")
     public String showAddPage(ModelMap model) {
-        List<Food> rez = service.getByName("Milk");
-        System.out.println(rez.toString());
-        model.addAttribute("food", new Food());
+        /*List<Ingredient> rez = service.getByName("Milk");
+        System.out.println(rez.toString());*/
+        model.addAttribute("food", new Ingredient());
         return "search";
     }
     @PostMapping("/search")
-    public String add(ModelMap model, @ModelAttribute("food") Food b, BindingResult result) {
+    public String add(ModelMap model, @ModelAttribute("food") Ingredient b, BindingResult result) {
         if(result.hasErrors()) {
             return "search";
         }
         System.out.println(b.toString());
-        List<Food> rez = service.getByName(b.getName());
+        List<Ingredient> rez = service.getByName(b.getName());
 
         model.put("foods", rez);
         return "search";

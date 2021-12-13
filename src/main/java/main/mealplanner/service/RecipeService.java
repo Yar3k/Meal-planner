@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 public class RecipeService {
-    private final RecipeRepository recipeRepository;
+/*    private final RecipeRepository recipeRepository;
 
     @Autowired
     public RecipeService(RecipeRepository recipeRepository) {
@@ -70,5 +70,5 @@ public class RecipeService {
             recipe.addIngredient(ingredient);
         }
         recipeRepository.save(recipe);
-    }
+    }*/
 }
