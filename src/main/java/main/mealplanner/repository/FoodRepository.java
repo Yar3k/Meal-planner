@@ -10,7 +10,5 @@ import java.util.List;
 public interface FoodRepository extends CrudRepository<Food, Integer> {
     List<Food> findAll() ;
     List<Food> findByNameLike(String name);
-/*
-    @Query("select u from Food u where u.name like %?1%")
-    Food name(String name);*/
+
 }
