@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -43,6 +44,7 @@ public class RecipeController {
     @GetMapping("/show-form")
     public ModelAndView getAddRecipeForm(){
         List<Ingredient> all = ingredientRepository.findAll();
+        all.sort(Comparator.comparing(Ingredient::getName));
         List<Recipe> recipes = recipeService.findAll();
         return new ModelAndView("add-recipe-form",
                 Map.of("addRecipeRequest", new AddRecipeRequest(),
