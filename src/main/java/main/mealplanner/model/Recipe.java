@@ -12,17 +12,31 @@ public class Recipe {
     private Long id;
 
     private String name;
+    private double calories;
+    private double protein;
+    private double carbs;
+    private double fat;
 
     @OneToMany(mappedBy = "recipe",
-            cascade = CascadeType.MERGE,
-            orphanRemoval = true,
-            fetch = FetchType.EAGER
+            fetch = FetchType.EAGER,
+            cascade = {CascadeType.MERGE,CascadeType.PERSIST}
     )
     List<Ingredient> ingredientList = new ArrayList<>();
 
     public void addIngredient(Ingredient ingredient) {
+
+        this.calories += ingredient.getCalories();
+        this.protein += ingredient.getProtein();
+        this.carbs += ingredient.getCarbohydrate();
+        this.fat += ingredient.getFat();
+
         this.ingredientList.add(ingredient);
         ingredient.setRecipe(this);
+    }
+
+    public void deleteIngredient(){
+        ingredientList.forEach(ingredient -> ingredient.setRecipe(null));
+        ingredientList.clear();
     }
 
     public List<Ingredient> getIngredientList() {
@@ -49,6 +63,37 @@ public class Recipe {
         this.name = name;
     }
 
+    public double getCalories() {
+        return calories;
+    }
+
+    public void setCalories(double calories) {
+        this.calories = calories;
+    }
+
+    public double getProtein() {
+        return protein;
+    }
+
+    public void setProtein(double protein) {
+        this.protein = protein;
+    }
+
+    public double getCarbs() {
+        return carbs;
+    }
+
+    public void setCarbs(double carbs) {
+        this.carbs = carbs;
+    }
+
+    public double getFat() {
+        return fat;
+    }
+
+    public void setFat(double fat) {
+        this.fat = fat;
+    }
 
     @Override
     public String toString() {

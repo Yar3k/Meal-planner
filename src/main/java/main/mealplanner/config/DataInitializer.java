@@ -33,13 +33,10 @@ public class DataInitializer {
     @PostConstruct
     public void init() {
 
-       Recipe recipe = new Recipe();
-       recipe.setName("beer for Jarek");
-       recipe.addIngredient(ingredientRepository.findByName("Beer").get());
-       recipeRepository.save(recipe);
-
-
-
+//       Recipe recipe = new Recipe();
+//       recipe.setName("beer for Jarek");
+//       recipe.addIngredient(ingredientRepository.findByName("Beer").get());
+//       recipeRepository.save(recipe);
 
 
 

@@ -1,5 +1,6 @@
 package main.mealplanner.service;
 
+import main.mealplanner.model.DTO.AddRecipeRequest;
 import main.mealplanner.model.DTO.NutritionValue;
 import main.mealplanner.model.Ingredient;
 import main.mealplanner.model.Recipe;
@@ -24,6 +25,10 @@ public class RecipeService {
         this.ingredientRepository = ingredientRepository;
     }
 
+    public List<Recipe> findAll(){
+        return recipeRepository.findAll();
+    }
+
     public List<Recipe> findRecipesByNutrient(double calories, double protein, double carbohydrates, double fat) {
         List<Recipe> allRecipes = recipeRepository.findAll();
         List<Recipe> result = new ArrayList<>();
@@ -38,9 +43,7 @@ public class RecipeService {
             }
         }
         return result;
-
     }
-
 
     private double getTotalCaloriesByRecipe(Recipe recipe) {
         double totalCalories = 0;
@@ -74,15 +77,23 @@ public class RecipeService {
         return totalCarbohydrate;
     }
 
-    public void addNewRecipe(List<Ingredient> ingredientList, String name) {
+    public void addNewRecipe(AddRecipeRequest addRecipeRequest) {
         Recipe recipe = new Recipe();
-        recipe.setName(name);
+        recipe.setName(addRecipeRequest.getRecipeName());
 
-        for (Ingredient ingredient : ingredientList) {
-            recipe.addIngredient(ingredient);
+        if (!addRecipeRequest.returnIngredientNames().isEmpty()) {
+
+            for (String ingredientName : addRecipeRequest.returnIngredientNames()) {
+                ingredientRepository.findByName(ingredientName)
+                        .ifPresentOrElse(recipe::addIngredient,
+                                () -> {
+                                    throw new IllegalArgumentException(String.format("Ingridient with name %s is not present in database", ingredientName));
+                                });
+            }
         }
         recipeRepository.save(recipe);
     }
+
     /**
      * Service to return nutrition value of ingredient
      */
@@ -102,5 +113,12 @@ public class RecipeService {
 
         }
         throw new NoSuchElementException("Ingredient not present in database");
+    }
+
+    public void deleteById(long id) {
+        Optional<Recipe> byId = recipeRepository.findById(id);
+        Recipe recipe = byId.get();
+        recipe.deleteIngredient();
+        recipeRepository.deleteById(id);
     }
 }

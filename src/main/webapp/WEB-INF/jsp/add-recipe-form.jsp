@@ -17,9 +17,8 @@
         crossorigin="anonymous"></script>
 
 <!DOCTYPE html>
+
 <html>
-
-
 <body>
 <div class="container">
     <div id="wrapper">
@@ -30,127 +29,124 @@
 
     <form:form action="add-recipe" modelAttribute="addRecipeRequest" method="POST">
 
-    <table class="table table-bordered">
-        <thead>
-        <tr>
-            <th>
-                <h3>Add Ingridients for a recipe</h3>
-            </th>
-        </tr>
-        </thead>
-        <tbody>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>
+                    <h3>Add Ingridients for a recipe</h3>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
 
-        <tr>
-            <td>
-                <label>Choose a name for your new recipe:</label>
-                <form:input path="recipeName"/>
-            </td>
+            <tr>
+                <td>
+                    <label>Choose a name for your new recipe:</label>
+                    <form:input path="recipeName"/>
+                </td>
 
-        </tr>
-        <tr>
+            </tr>
+            <tr>
+                <td>
+                    Select first ingredient:&nbsp;
+                    <select name="recipe1">
+                        <c:forEach items="${ingredients}" var="ingredient">
+                            <option value="${ingredient.name}">${ingredient.name}</option>
+                        </c:forEach>
+                    </select>
+                </td>
+            </tr>
+            <tr>
 
-            <td>
-                Select Protein:&nbsp;
-                <select name="recipe1">
-                    <option value="Chicken">Chicken</option>
-                    <option value="Beef">Beef</option>
-                    <option value="Salmon">Salmon</option>
-                </select>
-            </td>
-        </tr>
+                <td>
+                    Select second ingredient:&nbsp;
+                    <select name="recipe2">
+                        <c:forEach items="${ingredients}" var="ingredient">
+                            <option value="${ingredient.name}">${ingredient.name}</option>
+                        </c:forEach>
+                    </select>
+                </td>
+            </tr>
+            <tr>
 
-        <tr>
+                <td>
+                    Select third ingredient:&nbsp;
+                    <select name="recipe3">
+                        <c:forEach items="${ingredients}" var="ingredient">
+                            <option value="${ingredient.name}">${ingredient.name}</option>
+                        </c:forEach>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Select fourth ingredient:&nbsp;
+                    <select name="recipe4">
+                        <c:forEach items="${ingredients}" var="ingredient">
+                            <option value="${ingredient.name}">${ingredient.name}</option>
+                        </c:forEach>
+                    </select>
+                </td>
+            </tr>
 
-            <td>
-                Select Carbs:&nbsp;
-                <select name="recipe2">
-                    <option value="Rice"> Rice</option>
-                    <option value="Buckwheat">Buckwheat</option>
-                    <option value="Pasta">Pasta</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Select Veges:&nbsp;
-                <select name="recipe3">
-                    <option value="Broccoli">Broccoli</option>
-                    <option value="Salad">Salad</option>
-                    <option value="Coleslaw">Coleslaw</option>
-                </select>
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                Select Extras:&nbsp;
-                <select name="recipe4">
-                    <option value="Guacamole">Guacamole</option>
-                    <option value="Humus">Humus</option>
-                    <option value="Tzatziki">Tzatziki</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="Save" class="save"/></td>
-        </tr>
-        </tbody>
-    </table>
+            <tr>
+                <td><input type="submit" value="Save" class="save"/></td>
+            </tr>
+            </tbody>
+        </table>
     </form:form>
 
 
-        <div class="col-md-12">
-            <div class="table-responsive table-dark" id="preptable">
+    <div class="col-md-12">
+        <div class="table-responsive table-dark" id="preptable">
 
-                <table class="table table-bordered table-hover text-center"
-                       data-toggle="">
-                    <thead>
-                    <tr class="">
-                        <th data-field=id data-filter-control="select"
-                            data-sortable="true">Name
-                        </th>
-                        <th data-field=echantillons data-filter-control="select"
-                            data-sortable="true">Calories
-                        </th>
-                        <th data-field=conditionnement data-filter-control="select"
-                            data-sortable="true">Protein
-                        </th>
-                        <th data-field=transporteur data-filter-control="select"
-                            data-sortable="true">Carbs
-                        </th>
-                        <th data-field=etat data-filter-control="select"
-                            data-sortable="true">Fats
-                        </th>
+            <table class="table table-bordered table-hover text-center"
+                   data-toggle="">
+                <thead>
+                <tr class="">
+                    <th data-field=id data-filter-control="select"
+                        data-sortable="true">Name
+                    </th>
+                    <th data-field=echantillons data-filter-control="select"
+                        data-sortable="true">Calories
+                    </th>
+                    <th data-field=conditionnement data-filter-control="select"
+                        data-sortable="true">Protein
+                    </th>
+                    <th data-field=transporteur data-filter-control="select"
+                        data-sortable="true">Carbs
+                    </th>
+                    <th data-field=etat data-filter-control="select"
+                        data-sortable="true">Fats
+                    </th>
+
+                    <th data-field=etat data-filter-control="select"
+                        data-sortable="true">Remove recipe
+                    </th>
+                </tr>
+
+                </thead>
+                <tbody>
+                <c:forEach items="${recipes}" var="recipe">
+                    <tr>
+                        <td>${recipe.name}</td>
+                        <td>${recipe.calories}</td>
+                        <td>${recipe.protein}</td>
+                        <td>${recipe.carbs}</td>
+                        <td>${recipe.fat}</td>
+                        <td><a href="${pageContext.request.contextPath}/recipe/delete/${recipe.id}">Click Here to delete
+                            recipe</a></td>
                     </tr>
-
-                    </thead>
-                    <tbody>
-                    <c:forEach items="${recipes}" var="recipe">
-
-                        <tr>
-                            <td>${recipe.name}</td>
-                            <td>${recipe.calories}</td>
-                            <td>${recipe.protein}</td>
-                            <td>${recipe.carbs}</td>
-                            <td>${recipe.fat}</td>
-
-                        </tr>
-                    </c:forEach>
-
-
-                    </tbody>
-
-
-                </table>
-
-                <p>
-                    <a href="${pageContext.request.contextPath}/customer/list">Back to List</a>
-                </p>
-
-            </div>
-
+                </c:forEach>
+                </tbody>
+            </table>
+            <p>
+                <a href="${pageContext.request.contextPath}/customer/list">Back to main page</a>
+            </p>
         </div>
+
     </div>
+</div>
 </body>
 
 </html>
