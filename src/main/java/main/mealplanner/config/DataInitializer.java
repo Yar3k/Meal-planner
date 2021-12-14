@@ -17,7 +17,6 @@ import java.util.Optional;
 @Component
 public class DataInitializer {
 
-    private final Faker faker = new Faker();
     private final RecipeService recipeService;
     private final RecipeRepository recipeRepository;
     private final IngredientRepository ingredientRepository;
@@ -35,11 +34,13 @@ public class DataInitializer {
     public void init() {
 
        Recipe recipe = new Recipe();
-       recipe.setName("Funny bananas");
-       recipe.addIngredient(ingredientRepository.findByName("Apples").get());
+       recipe.setName("Carp crap");
+       recipe.addIngredient(ingredientRepository.findByName("Carp").get());
+       recipe.addIngredient(ingredientRepository.findByName("Bulgur").get());
        recipe.addIngredient(ingredientRepository.findByName("Beer").get());
-       recipe.addIngredient(ingredientRepository.findByName("Bananas").get());
        recipeRepository.save(recipe);
+
+
 
 
 
