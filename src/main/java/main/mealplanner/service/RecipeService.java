@@ -87,7 +87,7 @@ public class RecipeService {
                 ingredientRepository.findByName(ingredientName)
                         .ifPresentOrElse(recipe::addIngredient,
                                 () -> {
-                                    throw new IllegalArgumentException(String.format("Ingridient with name %s is not present in database", ingredientName));
+                                    throw new IllegalArgumentException(String.format("Ingredient with name %s is not present in database", ingredientName));
                                 });
             }
         }

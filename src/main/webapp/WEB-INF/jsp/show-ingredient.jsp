@@ -41,6 +41,11 @@
                 <td><input type="submit" value="Save" class="save"/></td>
             </tr>
     </form:form>
+    <p>${result.name}</p>
+    <p>${result.calories}</p>
+    <p>${result.protein}</p>
+    <p>${result.carbohydrate}</p>
+    <p>${result.fat}</p>
     </div>
 </div>
 </body>
