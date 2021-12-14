@@ -34,9 +34,7 @@ public class DataInitializer {
     public void init() {
 
        Recipe recipe = new Recipe();
-       recipe.setName("Carp crap");
-       recipe.addIngredient(ingredientRepository.findByName("Carp").get());
-       recipe.addIngredient(ingredientRepository.findByName("Bulgur").get());
+       recipe.setName("beer for Jarek");
        recipe.addIngredient(ingredientRepository.findByName("Beer").get());
        recipeRepository.save(recipe);
 
