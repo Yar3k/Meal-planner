@@ -141,7 +141,7 @@
                 </tbody>
             </table>
             <p>
-                <a href="${pageContext.request.contextPath}/customer/list">Back to main page</a>
+                <a href="${pageContext.request.contextPath}/main-menu">Back to main page</a>
             </p>
         </div>
 

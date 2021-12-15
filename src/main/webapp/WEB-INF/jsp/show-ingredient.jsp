@@ -46,6 +46,9 @@
     <p>${result.protein}</p>
     <p>${result.carbohydrate}</p>
     <p>${result.fat}</p>
+    <p>
+        <a href="${pageContext.request.contextPath}/main-menu">Back to main page</a>
+    </p>
     </div>
 </div>
 </body>
