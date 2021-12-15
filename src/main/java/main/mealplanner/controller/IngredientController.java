@@ -30,10 +30,12 @@ public class IngredientController {
     public ModelAndView showForm(ModelAndView modelAndView, @ModelAttribute Ingredient ingredient){
         List<Ingredient> allIngredients = ingredientRepository.findAll();
         allIngredients.sort(Comparator.comparing(Ingredient::getName));
+
         modelAndView.addObject("ingredients",allIngredients);
         modelAndView.addObject("result",ingredient);
         modelAndView.addObject("ingredient", new Ingredient());
         modelAndView.setViewName("show-ingredient");
+
         return modelAndView;
     }
     @PostMapping(value = "/nutrition")
@@ -46,5 +48,4 @@ public class IngredientController {
         modelAndView.setViewName("redirect:/ingredient/show-form");
         return modelAndView;
     }
-
 }

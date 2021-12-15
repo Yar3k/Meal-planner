@@ -134,8 +134,8 @@
                         <td>${recipe.protein}</td>
                         <td>${recipe.carbs}</td>
                         <td>${recipe.fat}</td>
-                        <td><a href="${pageContext.request.contextPath}/recipe/delete/${recipe.id}">Click Here to delete
-                            recipe</a></td>
+                        <td> <a class="btn btn-danger" href="${pageContext.request.contextPath}/recipe/delete/${recipe.id}" role="button">Delete recipe</a></td>
+
                     </tr>
                 </c:forEach>
                 </tbody>

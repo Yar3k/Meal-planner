@@ -1,23 +1,16 @@
 package main.mealplanner.controller;
 
 import main.mealplanner.model.DTO.AddRecipeRequest;
-import main.mealplanner.model.DTO.NutritionValue;
 import main.mealplanner.model.Ingredient;
 import main.mealplanner.model.Recipe;
 import main.mealplanner.repository.IngredientRepository;
 import main.mealplanner.service.RecipeService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping(value = "/recipe")
@@ -30,19 +23,9 @@ public class RecipeController {
         this.ingredientRepository = ingredientRepository;
     }
 
-    @GetMapping(value = "/ingredient")
-    public ModelAndView getNutritionValue(@RequestParam String name,
-                                          @RequestParam double weight,
-                                          ModelAndView modelAndView) {
-
-             NutritionValue calculateNutrition = recipeService.calculateNutrition(name, weight);
-
-        modelAndView.addObject("nutritionValue",calculateNutrition);
-        return modelAndView;
-    }
 
     @GetMapping("/show-form")
-    public ModelAndView getAddRecipeForm(){
+    public ModelAndView getAddRecipeForm(ModelAndView modelAndView){
         List<Ingredient> all = ingredientRepository.findAll();
         all.sort(Comparator.comparing(Ingredient::getName));
         List<Recipe> recipes = recipeService.findAll();
