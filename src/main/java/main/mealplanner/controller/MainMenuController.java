@@ -11,14 +11,12 @@ public class MainMenuController {
     @GetMapping("/main-menu")
     public String menu(ModelMap model) {
 
-            return "main-menu";
-        }
+        return "main-menu";
+    }
+
     @GetMapping("/meal-planner")
     public String mealPlaner(ModelMap model) {
 
         return "meal-planner";
     }
-
-
-
-    }
+}
