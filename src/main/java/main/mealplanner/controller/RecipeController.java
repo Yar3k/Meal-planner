@@ -29,10 +29,15 @@ public class RecipeController {
         List<Ingredient> all = ingredientRepository.findAll();
         all.sort(Comparator.comparing(Ingredient::getName));
         List<Recipe> recipes = recipeService.findAll();
-        return new ModelAndView("add-recipe-form",
-                Map.of("addRecipeRequest", new AddRecipeRequest(),
-                "recipes",recipes,
-                        "ingredients",all));
+
+
+        modelAndView.addObject("addRecipeRequest", new AddRecipeRequest());
+        modelAndView.addObject("recipes", recipes);
+        modelAndView.addObject("ingredients", all);
+        modelAndView.setViewName("add-recipe-form");
+
+        return modelAndView;
+
     }
 
     @PostMapping("/add-recipe")
