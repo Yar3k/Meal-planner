@@ -38,7 +38,7 @@
             </select>
 
 
-                <td><input type="submit" value="Save" class="save"/></td>
+                <td><input type="submit" value="Calculate" class="save"/></td>
             </tr>
     </form:form>
     <p>${result.name}</p>

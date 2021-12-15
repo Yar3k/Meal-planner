@@ -98,7 +98,7 @@
 
 
     <div class="col-md-12">
-        <div class="table-responsive table-dark" id="preptable">
+        <div class="table-responsive " id="preptable">
 
             <table class="table table-bordered table-hover text-center"
                    data-toggle="">
