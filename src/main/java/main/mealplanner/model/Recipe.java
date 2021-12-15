@@ -1,6 +1,8 @@
 package main.mealplanner.model;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +31,12 @@ public class Recipe {
         this.protein += ingredient.getProtein();
         this.carbs += ingredient.getCarbohydrate();
         this.fat += ingredient.getFat();
+
+        this.calories=new BigDecimal(this.calories).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        this.protein=new BigDecimal(this.protein).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        this.carbs=new BigDecimal(this.carbs).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        this.fat=new BigDecimal(this.fat).setScale(2, RoundingMode.HALF_UP).doubleValue();
+
 
         this.ingredientList.add(ingredient);
         ingredient.setRecipe(this);
