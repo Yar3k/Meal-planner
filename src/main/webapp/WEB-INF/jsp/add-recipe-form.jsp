@@ -106,6 +106,10 @@
                     </th>
 
                     <th data-field=etat data-filter-control="select"
+                        data-sortable="true">Ingredients
+                    </th>
+
+                    <th data-field=etat data-filter-control="select"
                         data-sortable="true">Remove recipe
                     </th>
                 </tr>
@@ -119,6 +123,11 @@
                         <td>${recipe.protein}</td>
                         <td>${recipe.carbs}</td>
                         <td>${recipe.fat}</td>
+                        <td>
+                    <c:forEach items="${recipe.getIngredientList()}" var="prod">
+                            ${prod.name}</br>
+                    </c:forEach>
+                        </td>
                         <td> <a class="btn btn-danger" href="${pageContext.request.contextPath}/recipe/delete/${recipe.id}" role="button">Delete recipe</a></td>
 
                     </tr>
