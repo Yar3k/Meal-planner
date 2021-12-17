@@ -6,35 +6,41 @@ import javax.persistence.*;
 public class Ingredient {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // JPA autogenerates value of id
-    private int id;
-    private String name;
-    private String calories;
-    private String fat_g;
-    private String protein_g;
-    private String carbohydrate_g;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
+    private Long id;
 
-    public Ingredient() {
-    }
-
-    public Ingredient(String name) {
-        this.name=name;
-    }
-
-    public Ingredient(String name, String calories, String fat_g, String protein_g, String carbohydrate_g) {
-        this.name = name;
-        this.calories = calories;
-        this.fat_g = fat_g;
-        this.protein_g = protein_g;
-        this.carbohydrate_g = carbohydrate_g;
-    }
-
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
+    }
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "protein")
+    private double protein;
+
+    @Column(name = "fat")
+    private double fat;
+
+    @Column(name = "carbohydrate")
+    private double carbohydrate;
+
+    @Column(name = "calories")
+    private double calories;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Recipe recipe;
+
+    public Recipe getRecipe() {
+        return recipe;
+    }
+
+    public void setRecipe(Recipe recipe) {
+        this.recipe = recipe;
     }
 
     public String getName() {
@@ -45,47 +51,47 @@ public class Ingredient {
         this.name = name;
     }
 
-    public String getCalories() {
+    public double getProtein() {
+        return protein;
+    }
+
+    public void setProtein(double protein) {
+        this.protein = protein;
+    }
+
+    public double getFat() {
+        return fat;
+    }
+
+    public void setFat(double fat) {
+        this.fat = fat;
+    }
+
+    public double getCarbohydrate() {
+        return carbohydrate;
+    }
+
+    public void setCarbohydrate(double carbohydrate) {
+        this.carbohydrate = carbohydrate;
+    }
+
+    public double getCalories() {
         return calories;
     }
 
-    public void setCalories(String calories) {
+    public void setCalories(double calories) {
         this.calories = calories;
-    }
-
-    public String getFat_g() {
-        return fat_g;
-    }
-
-    public void setFat_g(String fat_g) {
-        this.fat_g = fat_g;
-    }
-
-    public String getProtein_g() {
-        return protein_g;
-    }
-
-    public void setProtein_g(String protein_g) {
-        this.protein_g = protein_g;
-    }
-
-    public String getCarbohydrate_g() {
-        return carbohydrate_g;
-    }
-
-    public void setCarbohydrate_g(String carbohydrate_g) {
-        this.carbohydrate_g = carbohydrate_g;
     }
 
     @Override
     public String toString() {
-        return "Food{" +
+        return "Ingredient{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", calories='" + calories + '\'' +
-                ", fat_g='" + fat_g + '\'' +
-                ", protein_g='" + protein_g + '\'' +
-                ", carbohydrate_g='" + carbohydrate_g + '\'' +
+                ", protein=" + protein +
+                ", fat=" + fat +
+                ", carbohydrate=" + carbohydrate +
+                ", calories=" + calories +
                 '}';
     }
 }
