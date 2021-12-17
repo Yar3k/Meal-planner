@@ -1,23 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><link href="static/css/bootstrap.min.css" rel="stylesheet"/>
-
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ include file="common/header.jspf"%>
+<%@ include file="common/navigation.jspf"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-
-<!DOCTYPE html>
-
 <html>
 <body>
 <div class="container">
@@ -41,14 +24,28 @@
                 <td><input type="submit" value="Calculate" class="save"/></td>
             </tr>
     </form:form>
-    <p>${result.name}</p>
-    <p>${result.calories}</p>
-    <p>${result.protein}</p>
-    <p>${result.carbohydrate}</p>
-    <p>${result.fat}</p>
-    <p>
-        <a href="${pageContext.request.contextPath}/main-menu">Back to main page</a>
-    </p>
+
+    <table class="table table-striped">
+        <tbody>
+        <tr>
+            <th scope="col">Nutrition</th>
+            <td>Product name</td>
+            <td>Calories</td>
+            <td>Protein</td>
+            <td>Carbohydrate</td>
+            <td>Fat</td>
+        </tr>
+        <tr>
+            <th scope="col">Values</th>
+            <td>${result.name}</td>
+            <td>${result.calories}</td>
+            <td>${result.protein}</td>
+            <td>${result.carbohydrate}</td>
+            <td>${result.fat}</td>
+        </tr>
+        </tbody>
+    </table>
+
     </div>
 </div>
 </body>

@@ -29,7 +29,9 @@ public class RecipeController {
         List<Ingredient> all = ingredientRepository.findAll();
         all.sort(Comparator.comparing(Ingredient::getName));
         List<Recipe> recipes = recipeService.findAll();
-
+        for (Recipe food: recipes) {
+            System.out.println(food.getIngredientList().toString());
+        };
 
         modelAndView.addObject("addRecipeRequest", new AddRecipeRequest());
         modelAndView.addObject("recipes", recipes);
