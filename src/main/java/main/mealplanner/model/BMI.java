@@ -16,6 +16,7 @@ public class BMI {
         this.height=height;
     }
 
+
     public int getWeight() {
         return weight;
     }
@@ -33,9 +34,14 @@ public class BMI {
     }
 
     public double getResult() {
-        BigDecimal bd = BigDecimal.valueOf(result);
-        bd = bd.setScale(2, RoundingMode.HALF_UP);
-        return bd.doubleValue();
+        try {
+            BigDecimal bd = BigDecimal.valueOf(result);
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
+            return bd.doubleValue();
+        }catch (Exception e){
+            return 0;
+        }
+
     }
 
     public void setResult(double result) {

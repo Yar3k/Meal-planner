@@ -1,5 +1,6 @@
 package main.mealplanner.controller;
 
+import main.mealplanner.config.BMICalculus;
 import main.mealplanner.model.BMI;
 import main.mealplanner.model.User;
 import org.springframework.stereotype.Controller;
@@ -21,18 +22,7 @@ public class BMIController {
         if(result.hasErrors()) {
             return "bmi";
         }
-        double bmi = b.getWeight() / Math.pow(b.getHeight(), 2) * 10000;
-        b.setResult(bmi);
-        if (bmi < 18.5) {
-            b.setStatus("underweight");
-        } else if (bmi < 25) {
-            b.setStatus("normal");
-        } else if (bmi < 30) {
-            b.setStatus("overweight");
-        } else {
-            b.setStatus("obese");
-        }
-
+        new BMICalculus().Calculate(b);
         model.addAttribute("bmi", b);
         return "bmindex";
     }
